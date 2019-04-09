@@ -9,9 +9,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.github.rtoshiro.util.format.MaskFormatter;
-import com.github.rtoshiro.util.format.SimpleMaskFormatter;
-import com.github.rtoshiro.util.format.text.MaskTextWatcher;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -25,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,11 +34,16 @@ public class MainActivity extends AppCompatActivity {
         btnIniciarVotacao=findViewById(R.id.btnIniciarVotacao);
         dataNasciomento=findViewById(R.id.editTextDataNascimento);
 
+
         //mascara para data
        // SimpleMaskFormatter smf=new SimpleMaskFormatter("NN/NN/NNNN");
        // MaskTextWatcher mtw=new MaskTextWatcher(dataNasciomento,smf);
        // dataNasciomento.addTextChangedListener(mtw);
         //fim marcara
+
+
+
+
 
 
         btnIniciarVotacao.setOnClickListener(new View.OnClickListener() {
@@ -69,6 +74,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(getApplicationContext(),AdicionarCandidatoActivity.class);
+
+                intent.putExtra("n","login");
+
+
                 startActivity(intent);
 
             }

@@ -2,10 +2,12 @@ package com.example.urnaeletronica;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.text.ParseException;
@@ -21,6 +23,7 @@ public class AdicionarCandidatoActivity extends AppCompatActivity {
     private EditText dataNascimento;
     private Button btnSalvarCandidato;
     private Date dataNascimentoTratada;
+    private TextView mostraPutExtra;
 
 
     public void setDataNascimentoTratada(Date dataNascimentoTratada) {
@@ -37,6 +40,24 @@ public class AdicionarCandidatoActivity extends AppCompatActivity {
         radioBtnOutraNacionalidade = findViewById(R.id.radioButtonOutros);
         dataNascimento = findViewById(R.id.editTextDataNascimento);
         btnSalvarCandidato=findViewById(R.id.button_salvarCadastro);
+        mostraPutExtra=findViewById(R.id.textViewPutExtra);
+
+        Bundle bundleExtra=getIntent().getExtras();
+
+        if(bundleExtra!=null){
+            String textoRecebidoLogin=bundleExtra.getString("n");
+
+
+            mostraPutExtra.setText(textoRecebidoLogin);
+
+            Toast toast=Toast.makeText(getApplicationContext(),textoRecebidoLogin,Toast.LENGTH_LONG);
+            toast.show();
+
+        }
+
+
+
+
 
 
 
